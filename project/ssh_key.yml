@@ -1,0 +1,12 @@
+---
+- name: ssh key for control nodes
+  ansible.posix.authorized_key:  
+    user: "{{ user }}" 
+    state: present 
+    key: "{{ lookup('file', '/home/{{ user }}/.ssh/id_rsa.pub') }}"
+
+- name: create the sudoer file for {{ user }}
+  ansible.builtin.copy:
+    content: "{{ user }}  ALL=(ALL)   NOPASSWD:ALL"
+    dest: "/etc/sudoers.d/{{ user}}"
+

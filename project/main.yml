@@ -1,0 +1,7 @@
+---
+- name: ssh share to control node
+  hosts: server01
+  vars_files: 
+    - vars.yml
+  tasks:
+    - include_tasks: ssh_key.yml
