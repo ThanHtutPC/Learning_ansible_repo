@@ -1,0 +1,8 @@
+# user for ssh key
+user: student
+
+# parted the partitions
+device: /dev/sr0 
+state: present
+fs_type: iso9660 
+mount_path: /mnt/repo 

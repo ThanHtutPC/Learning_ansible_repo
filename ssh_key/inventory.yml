@@ -1,0 +1,15 @@
+---
+all: 
+  hosts:
+    local:
+      ansible_hosts: localhost 
+      ansible_connection: local
+  children:
+    server:
+      hosts:
+        server01.th.lab:
+          ansible_hosts: 192.168.56.11
+          ansible_connection: ssh 
+        server02.th.lab: 
+          ansible_hosts: 192.168.56.12
+          ansible_connection: ssh 
