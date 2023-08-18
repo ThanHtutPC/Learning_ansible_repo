@@ -1,0 +1,23 @@
+postgresql_service: postgresql
+
+postgresql_packages:
+    - postgresql-server
+    - python-psycopg2
+
+pip_packages: []
+
+pg_user: postgres
+pg_group: root
+
+locale_latin_suffix:
+locale_utf8_suffix:
+
+postgis: postgis
+
+# defaults for test SSL
+ssl_db: 'ssl_db'
+ssl_user: 'ssl_user'
+ssl_pass: 'ssl_pass'
+ssl_rootcert: '/etc/server-ca.crt'
+ssl_cert: '/etc/client.crt'
+ssl_key: '/etc/client.key'
