@@ -1,0 +1,5 @@
+[webservers]
+server01.th.lab
+
+[dbservers]
+server02.th.lab

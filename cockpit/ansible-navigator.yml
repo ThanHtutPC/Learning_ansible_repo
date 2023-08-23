@@ -1,0 +1,9 @@
+---
+ansible-navigator:
+  ansible: 
+    config:
+      path: ./ansible.cfg
+  execution-environment: 
+    image: registry.redhat.io/ansible-automation-platform-22/ee-supported-rhel8:latest
+    pull:
+      policy: missing
