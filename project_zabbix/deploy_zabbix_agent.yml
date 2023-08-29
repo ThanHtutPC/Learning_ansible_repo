@@ -2,7 +2,7 @@
   containers.podman.podman_login:
     username: "{{ username }}" 
     password: "{{ password }}"
-    registry: registry.access.redhat.com
+    registry: registry.connect.redhat.com
 
 - name: Run Zabbix Agent Container
   containers.podman.podman_container:
