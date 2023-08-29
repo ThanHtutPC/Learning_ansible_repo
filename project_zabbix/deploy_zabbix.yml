@@ -1,0 +1,24 @@
+---
+- name: Deploy the Zabbix server 
+  hosts: local # Change your manage nodes
+  vars_files: 
+    - ./secret.yml
+    - ./vars.yml
+  tasks: 
+    - name: Create Zabbix Pod
+      include_tasks: create_zabbix_pod.yml
+
+    - name: Deploy Zabbix Agent 
+      include_tasks: deploy_zabbix_agent.yml
+
+    - name: Deploy mysql Server 
+      include_tasks: deploy_mysql_server.yml 
+
+    - name: Deploy Zabbix Java Gateway  
+      include_tasks: deploy_zabbix_java_gateway.yml
+
+    - name: Deploy Zabbix Server mysql  
+      include_tasks: deploy_zabbix_server_mysql.yml 
+
+    - name: Deploy Zabbix Web mysql 
+      include_tasks: deploy_zabbix_web_mysql.yml 

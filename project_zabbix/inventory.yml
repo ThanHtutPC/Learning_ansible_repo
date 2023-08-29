@@ -1,0 +1,6 @@
+---
+all: 
+  hosts:
+    local:
+      ansible_hosts: localhost  ## add you manage node
+      ansible_connection: local

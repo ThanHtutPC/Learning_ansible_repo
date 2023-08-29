@@ -1,0 +1,7 @@
+- name: Create Zabbix Pod
+  containers.podman.podman_pod:
+    name: "{{ pod_name }}"
+    state: started
+    ports:
+      - 8080:8080
+      - 10051:10051

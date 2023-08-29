@@ -1,0 +1,14 @@
+- name: Run Zabbix Server with MySQL Container
+  containers.podman.podman_container:
+    name: "{{ zabbix_sql }}"  
+    image: "{{ zabbix_sql_image }}" 
+    env:
+      DB_SERVER_HOST: "127.0.0.1"
+      MYSQL_DATABASE: "zabbix"
+      MYSQL_USER: "zabbix"
+      MYSQL_PASSWORD: "zabbix_pwd"
+      MYSQL_ROOT_PASSWORD: "root_pwd"
+      ZBX_JAVAGATEWAY: "127.0.0.1"
+    restart_policy: always
+    pod: "{{ pod_name }}" 
+    detach: yes

@@ -1,0 +1,7 @@
+- name: Run Zabbix Java Gateway Container
+  containers.podman.podman_container:
+    name: "{{ gateway_name }}" 
+    image: "{{ gateway_image }}"
+    restart_policy: always
+    pod: "{{ pod_name }}"  
+    detach: yes

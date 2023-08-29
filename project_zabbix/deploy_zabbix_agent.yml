@@ -1,0 +1,16 @@
+- name: Login to default registry and create ${XDG_RUNTIME_DIR}/containers/auth.json
+  containers.podman.podman_login:
+    username: "{{ username }}" 
+    password: "{{ password }}"
+    registry: registry.access.redhat.com
+
+- name: Run Zabbix Agent Container
+  containers.podman.podman_container:
+    name: "{{ agent_name }}"  
+    image: "{{ agent_image }}"  
+    env:
+      ZBX_SERVER_HOST: "127.0.0.1,localhost"
+    restart_policy: always
+    pod: "{{ pod_name }}"  
+    detach: yes
+

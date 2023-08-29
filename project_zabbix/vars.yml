@@ -1,0 +1,23 @@
+## pod
+pod_name: zabbix ## This is pod name
+
+## zabbix agent
+agent_name: zabbix_agent 
+agent_image: registry.connect.redhat.com/zabbix/zabbix-agent-64:latest 
+
+## mysql_server
+mysql_name: mysql-server 
+mysql_image: docker.io/library/mysql:8.0 
+file_path: /root/mysql
+
+## Java Gateway
+gateway_name: zabbix-java-gateway
+gateway_image: registry.connect.redhat.com/zabbix/zabbix-java-gateway-50
+
+## zabbix_server_mysql 
+zabbix_sql: zabbix-server-mysql
+zabbix_sql_image: registry.connect.redhat.com/zabbix/zabbix-server-mysql-50
+
+## zabbix_web_mysql
+zabbix_web: zabbix-web-mysql
+zabbix_web_image: registry.connect.redhat.com/zabbix/zabbix-web-mysql-50
