@@ -1,0 +1,10 @@
+---
+- name: testing variable
+  hosts: all
+  tasks: 
+    - name: complex tasks 
+      vars:
+        taskvariable: tasks 
+      debug: 
+        var: taskvariable 
+
