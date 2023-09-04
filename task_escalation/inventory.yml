@@ -1,0 +1,9 @@
+---
+all: 
+  children: 
+    web_server:
+      hosts:
+        web_server01: 
+          ansible_host: server01.th.lab
+          ansible_connection: ssh 
+          ansible_user: student

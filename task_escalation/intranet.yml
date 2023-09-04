@@ -1,0 +1,47 @@
+---
+- name: Enable intranet services 
+  hosts: web_server
+  
+  tasks: 
+    - name: Tasks that require privilege escalation 
+      become: true 
+      block: 
+        - name: latest version of httpd and firewalld installed 
+          ansible.builtin.yum:
+            name: 
+              - httpd 
+              - firewalld 
+            state: latest
+
+        - name: test html page in installed 
+          ansible.builtin.copy: 
+            content: "Welcome to the th.lab intranet!\n" 
+            dest: /var/www/html/index.html
+
+        - name: firewalld enabled and running
+          ansible.builtin.service:
+            name: firewalld
+            enabled: true
+            state: started
+
+        - name: firewalld permits http service
+          ansible.posix.firewalld:
+            service: http
+            permanent: true
+            state: enabled
+            immediate: true
+
+        - name: httpd enabled and running
+          ansible.builtin.service:
+            name: httpd
+            enabled: true
+            state: started
+
+- name: Test intranet web server
+  hosts: localhost
+  tasks:
+  - name: connect to intranet web server
+    ansible.builtin.uri:
+      url: http://server01.th.lab 
+      return_content: true
+      status_code: 200

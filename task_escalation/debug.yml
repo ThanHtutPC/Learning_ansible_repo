@@ -1,0 +1,8 @@
+---
+- name: privilege task 
+  hosts: web_server 
+  
+  tasks: 
+    - name: debug ansible user id 
+      debug: 
+        var: ansible_user_id
